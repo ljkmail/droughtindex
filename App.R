@@ -1,7 +1,7 @@
 library(shiny)
-library(rstudioapi)
+# library(rstudioapi)
 
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 source("R/230606_SGI_shiny_module.R")
 source("R/230506_SPI분석_shiny_module.R")
