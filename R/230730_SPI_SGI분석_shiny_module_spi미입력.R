@@ -15,10 +15,23 @@ library(keras)
 library(tensorflow)
 library(sf)
 
+
+# 파이썬 사용 환경설정 -------------------------------------------------------------
+
+reticulate::use_virtualenv("myenv", python = "/home/ljkmail4/.local/share/r-miniconda/envs/r-reticulate/bin/python")
+reticulate::use_virtualenv("myenv", required=TRUE)
+
+if (!is_keras_available()) {
+  install_keras(method="virtualenv", envname="myenv")
+  reticulate::use_virtualenv("myenv", required=TRUE)
+  library(keras)
+  library(reticulate)
+}
+
 # 자료불러오기-------------------------------------------------------------
 
 df_spi <- read_rds("R/input/df_asos_spi_recent_temp.rds")
-# df_sgi <- read_rds("R/input/df_sgi.Rds") %>% bind_rows() # SGI_shiny_module에서 자료를 읽으므로 비활성화
+# df_sgi <- read_rds("R/input/df_sgi.rds") %>% bind_rows() # SGI_shiny_module에서 자료를 읽으므로 비활성화
 # 기상관측소 인근 지하수관측소 위치자료를 만들기 위한 자료 불러오기
 # 기상(ASOS)관측위치도 불러오기
 # df_asos_list <- read.csv(file = "R/input/230217_META_관측지점정보_asos.csv",
