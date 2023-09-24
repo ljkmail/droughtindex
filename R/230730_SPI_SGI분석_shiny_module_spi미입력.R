@@ -15,19 +15,6 @@ library(keras)
 library(tensorflow)
 library(sf)
 
-
-# 파이썬 사용 환경설정 -------------------------------------------------------------
-
-reticulate::use_virtualenv("myenv", python = "/home/ljkmail4/.local/share/r-miniconda/envs/r-reticulate/bin/python")
-reticulate::use_virtualenv("myenv", required=TRUE)
-
-if (!is_keras_available()) {
-  install_keras(method="virtualenv", envname="myenv")
-  reticulate::use_virtualenv("myenv", required=TRUE)
-  library(keras)
-  library(reticulate)
-}
-
 # 자료불러오기-------------------------------------------------------------
 
 df_spi <- read_rds("R/input/df_asos_spi_recent_temp.rds")
