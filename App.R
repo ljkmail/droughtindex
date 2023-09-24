@@ -1,6 +1,9 @@
 library(shiny)
 # library(rstudioapi)
 
+# tensorflow 환경설정을 위한 패키지 설치 ----------------------------------------------
+reticulate::install_miniconda()
+
 # setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 source("R/230606_SGI_shiny_module.R")
